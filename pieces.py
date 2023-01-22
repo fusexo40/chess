@@ -1,7 +1,6 @@
 class chess():
     
-    def __init__(self):
-        coords = [
+    coords = [
         ["a1", "b1", "c1", "d1", "e1", "f1", "g1", "h1"],
         ["a2", "b2", "c2", "d2", "e2", "f2", "g2", "h2"],
         ["a3", "b3", "c3", "d3", "e3", "f3", "g3", "h3"],
@@ -12,6 +11,9 @@ class chess():
         ["a8", "b8", "c8", "d8", "e8", "f8", "g8", "h8"],
         ]
 
+
+    def __init__(self):
+        pass
     
     def generate_table():
         return [

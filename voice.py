@@ -1,6 +1,8 @@
 import speech_recognition as sr
-from table import coords
+from pieces import chess
 
+
+coords = chess.coords
 
 class voise():
     def record_volume():
@@ -13,8 +15,8 @@ class voise():
         return answer
 
 
-    def get_coords():
-        step = record_volume().lower()
+    def get_coords(self):
+        step = self.record_volume().lower()
 
         if step[0] == "а":
             step = f"a{step[1]}"
