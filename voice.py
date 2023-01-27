@@ -5,6 +5,9 @@ from pieces import chess
 coords = chess.coords
 
 class voise():
+    def __init__(self) -> None:
+        pass
+
     def record_volume():
         r = sr.Recognizer()
         with sr.Microphone(device_index = 1) as source:
