@@ -2,6 +2,7 @@ import speech_recognition
 import chess
 import chess.engine
 from models import Stockfish
+import time
 
 board = chess.Board()
 
@@ -10,7 +11,7 @@ microphone = speech_recognition.Microphone()
 stockfish = Stockfish()
 
 
-stockfish.get_parameters()
+print(stockfish.get_parameters())
 while not board.is_stalemate() and not board.is_checkmate():
     with microphone:
         move = ""
@@ -36,10 +37,6 @@ while not board.is_stalemate() and not board.is_checkmate():
                 'h').replace('эш', 'h').replace(' ', '').replace('ш', 'h').replace('жэ', 'g').replace('ж',
                 'g').replace("король", "K").replace('ферзь', 'Q').replace('ладья', 'R')
     print(move)
-    legal = []
-    for i in board.legal_moves:
-        legal.append(str(i))
-    print(legal)
     stockfish.set_fen_position(board.fen())
     if stockfish.is_move_correct(board.parse_san(move)):
         #передвижение магнита под нужную шахмату
@@ -47,8 +44,9 @@ while not board.is_stalemate() and not board.is_checkmate():
         #передвижение магнита на ход
         print(board)
     else:
-        print("пошёл нахуй")
-    print(board.parse_san(move))
+        print("Move is not correct")
+    time.sleep(3.0)
+    stockfish.set_fen_position(board.fen())
     print(stockfish.get_best_move())
     board.push(chess.Move.from_uci(stockfish.get_best_move()))
     print(board)
