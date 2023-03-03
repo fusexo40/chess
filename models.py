@@ -35,7 +35,7 @@ class Stockfish:
             "Ponder": "false",
             "Hash": 16,
             "MultiPV": 1,
-            "Skill Level": 20,
+            "Skill Level": 5,
             "Move Overhead": 10,
             "Minimum Thinking Time": 20,
             "Slow Mover": 100,
